@@ -4,7 +4,7 @@ module.exports = function (Component) {
   return React.createClass({
     mixins: [Mixin],
     render: function () {
-      return React.createElement(Component, {
+      return React.createElement(Component, React.__spread({}, this.props, {
         setValidations: this.setValidations,
         setValue: this.setValue,
         resetValue: this.resetValue,
@@ -20,7 +20,7 @@ module.exports = function (Component) {
         showRequired: this.showRequired,
         showError: this.showError,
         isValidValue: this.isValidValue
-      });
+      }));
     }
   });
 };
